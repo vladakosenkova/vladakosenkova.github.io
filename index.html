@@ -2,21 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vlada Kosenkova - Personal Website</title>
+    <meta name="description" content="ersonal website of Vlada Kosenkova, PhD Student at CERGE-EI">
+    <meta name="keywords" content="vlada kosenkova, vlada kosenkova phd, vlada kosenkova econ, vlada kosenkova cerge-ei">
+    <meta name="author" content="Vlada Kosenkova">
+    
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
+        /* Apply the chosen font to all text */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 16px;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #f2f2f2;
             color: #333;
         }
 
         a {
             text-decoration: none;
-            color: #007bff;
+            color: #ff6600;
         }
 
         a:hover {
@@ -32,7 +39,7 @@
 
         .profile {
             flex: 0 0 300px;
-            background-color: #ffffff;
+            background-color: #d9e6f2;
             padding: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             overflow-y: auto;
@@ -50,7 +57,7 @@
         .profile h1 {
             font-size: 1.8em;
             margin: 0 0 10px 0;
-            color: #333;
+            color: #0056b3;
         }
 
         .bio p {
@@ -67,11 +74,11 @@
             max-width: 900px;
             margin: 0 auto 40px auto;
             padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 4px solid #ff6600; /* Make line breaker bolder and orange */
         }
 
         section h2 {
-            color: #007bff;
+            color: #0056b3;
             margin-bottom: 10px;
         }
 
@@ -84,10 +91,17 @@
             margin: 15px 0;
         }
 
+        hr {
+            height: 4px; /* Adjust thickness */
+            background-color: #ff6600; /* Change color */
+            border: none; /* Remove default border */
+            margin: 20px 0;
+        }
+
         footer {
             text-align: center;
             margin: 20px 0;
-            color: #555;
+            color: #999;
         }
     </style>
 </head>
@@ -99,7 +113,7 @@
         <img src="your-profile-picture.jpg" alt="Vlada Kosenkova">
         <h1>Vlada Kosenkova</h1>
         <div class="bio">
-            <p><strong>My CV</strong> is available <a href="CV.pdf" target="_blank" style="text-decoration: none; color: #007bff;">here</a></p>
+            <p><strong>My CV</strong> is available <a href="CV.pdf" target="_blank" style="text-decoration: none; color: #ff6600;">here</a></p>
             <p><strong>My email:</strong> <a href="mailto:vlada.kosenkova@cerge-ei.cz">vlada.kosenkova[at]cerge-ei.cz</a></p>
         </div>
     </div>
@@ -111,6 +125,9 @@
             <h2>Welcome!</h2>
             <p>Hi! I am a PhD student at <a href="https://www.cerge-ei.cz/">CERGE-EI</a>, studying Economic Research in Prague. I specialize in development economics, economics of crime, and political economy, with a primary focus on the Russian setting. My supervisor is <a href="https://home.cerge-ei.cz/jurajda/">Štěpán Jurajda</a>.</p>
         </section>
+
+        <!-- Horizontal Line Example -->
+        <hr>
 
         <!-- Working Papers Section -->
         <section id="working-papers">
@@ -125,18 +142,12 @@
             </ul>
         </section>
 
-        <!-- Teaching Section -->
-        <section id="teaching">
-            <h2>Teaching Activity</h2>
-            <ul>
-                <li>Details about teaching activities...</li>
-            </ul>
-        </section>
-
-        <!-- Footer -->
+        <!-- Footer (Commented Out) -->
+        <!-- 
         <footer>
             <p>© 2025 Vlada Kosenkova. All rights reserved.</p>
         </footer>
+        -->
     </div>
 </div>
 
