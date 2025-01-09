@@ -24,56 +24,59 @@
             text-decoration: underline;
         }
 
-        /* Header styles */
-        header {
-            text-align: center;
-            padding: 20px 10px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            color: #333;
-        }
-
-        header p {
-            font-size: 1.2em;
-            margin: 10px 0;
-        }
-
-        /* Image and bio section */
-        .profile {
+        /* Layout container */
+        .container {
             display: flex;
-            align-items: center;
-            justify-content: space-around;
-            margin: 20px auto;
-            max-width: 900px;
-            padding: 0 10px;
+            flex-direction: row;
+            height: 100vh; /* Full height */
+            overflow: hidden;
+        }
+
+        /* Left sidebar (Profile Section) */
+        .profile {
+            flex: 0 0 300px; /* Fixed width */
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            position: sticky;
+            top: 0; /* Sticky behavior */
+            height: 100vh;
         }
 
         .profile img {
-            max-width: 150px;
+            max-width: 100%;
             border-radius: 50%;
+            margin-bottom: 20px;
         }
 
-        .profile .bio {
-            max-width: 600px;
+        .profile h1 {
+            font-size: 1.8em;
+            margin: 0 0 10px 0;
+            color: #333;
         }
 
-        .profile .bio p {
+        .bio p {
             margin: 10px 0;
         }
 
-        /* Section styles */
+        /* Right content section */
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
         section {
             max-width: 900px;
-            margin: 20px auto;
-            padding: 10px;
-            border-top: 2px solid #007bff;
+            margin: 0 auto 40px auto;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
         }
 
         section h2 {
             color: #007bff;
+            margin-bottom: 10px;
         }
 
         ul {
@@ -82,10 +85,9 @@
         }
 
         ul li {
-            margin: 5px 0;
+            margin: 15px 0;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             margin: 20px 0;
@@ -95,60 +97,50 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Vlada Kosenkova</h1>
-<!--         <p>Welcome! I study economics with a focus on development and policy.</p> -->
-    </header>
-
-    <!-- Profile Section -->
+<div class="container">
+    <!-- Fixed Sidebar -->
     <div class="profile">
         <img src="your-profile-picture.jpg" alt="Vlada Kosenkova">
+        <h1>Vlada Kosenkova</h1>
         <div class="bio">
             <p>
                 Hi! I am a PhD student at <a href="https://www.cerge-ei.cz/">CERGE-EI</a>, studying Economic Research in Prague.  
-                I specialize in developement economics, economics of crime, and political economy, with primary focus on the Russian setting.
-                My supervisor is <a href="https://home.cerge-ei.cz/jurajda/">Štěpán Jurajda</a>.
-            </p>
-            <p><strong>My CV</strong> is available </p><a href="CV.pdf" target="_blank" style="text-decoration: none; color: #007bff;">here</a>
-            <p><strong>My email:</strong><a href="mailto:vlada.kosenkova@cerge-ei.cz">vlada.kosenkova[at]cerge-ei.cz</a></p>
+                I specialize in development economics, economics of crime, and political economy, with a primary focus on the Russian setting.
+                My supervisor is <a href="https://home.cerge-ei.cz/jurajda/">Štěpán Jurajda</a>.</p>
+            <p><strong>My CV</strong> is available <a href="CV.pdf" target="_blank" style="text-decoration: none; color: #007bff;">here</a></p>
+            <p><strong>My email:</strong> <a href="mailto:vlada.kosenkova@cerge-ei.cz">vlada.kosenkova[at]cerge-ei.cz</a></p>
         </div>
     </div>
 
-    <!-- Working Papers Section -->
-    <section id="working-papers">
-        <h2>Work in Progress</h2>
-        <ul>
-            <li>
-                <strong>Silent Protest on the Bench: The Impact of War on Ethnic Sentencing Disparities in Russian Courts</strong> (with Arsenii Scherbov) 
-                <p style="font-size: 0.9em; font-style: italic; margin-top: 10px;">This project is supported by the Charles University Grant Agency no. 69224</p>
-<!--                 <br> -->
-                <p>In this paper we investigate the effect of a 2022 war announcement and intensification of nationalistic propaganda on the sentencing disparities in Russian courts. We leverage the unexpected nature of war announcement in a regression discontinuity design, using February 2022 as a cut-off date. Our identification strategy is supported by the random allocation of cases inside of courts, which we also statistically check, and a series of robustness checks. To quantify the effect, we use a unique dataset on case-level and imply ethnicity of judge and defendant based on their names with a machine-learning classification model. Focusing on different ethnic pairs of judges and defendants in minor offense cases, we find that ethnic judges become more punitive towards Russian defendants after war. Thus, we find a 5.3 percentage point increase in probability to be sentenced to detention among this ethnic pair. This effect is particularly pronounced in localities with lower social trust, ethnic diversity, and democratic values (and higher predisposition to be affected by propaganda), suggesting that this change may be interpreted as a silent protest of ethnic minorities. These findings contribute to our understanding of how political shocks and propaganda intensification can affect ethnic discrimination within state institutions, particularly in autocratic settings.</p>
-            <p style="font-style: italic">This paper has been presented at <a href="https://cse.cz/en/">CES Biannual meeting 2024</a></p>
-            </li>
-<!--             <li>
-                <strong>Environmental Beliefs and Adaptation to Climate Change</strong> <br>
-                <a href="#">Abstract</a> | <a href="#">PDF</a> | <a href="#">Survey Instruments</a> | <a href="#">Coverage</a>
-            </li> -->
-        </ul>
-    </section>
+    <!-- Scrollable Main Content -->
+    <div class="content">
+        <!-- Working Papers Section -->
+        <section id="working-papers">
+            <h2>Work in Progress</h2>
+            <ul>
+                <li>
+                    <strong>Silent Protest on the Bench: The Impact of War on Ethnic Sentencing Disparities in Russian Courts</strong> (with Arsenii Scherbov) 
+                    <p style="font-size: 0.9em; font-style: italic; margin-top: 10px;">This project is supported by the Charles University Grant Agency no. 69224</p>
+                    <p>In this paper, we investigate the effect of a 2022 war announcement and intensification of nationalistic propaganda on sentencing disparities in Russian courts. We leverage the unexpected nature of the war announcement in a regression discontinuity design, using February 2022 as a cut-off date...</p>
+                    <p style="font-style: italic">This paper has been presented at: <a href="https://cse.cz/en/">CES Biannual meeting 2024</a></p>
+                </li>
+            </ul>
+        </section>
 
-    <!-- Publications Section -->
-    <section id="publications">
-        <h2>Publications</h2>
-        <ul>
-            <li>
-                <strong>Texts Don't Nudge: An Adaptive Trial to Prevent the Spread of COVID-19</strong> <br>
-                <em>Journal of Development Economics, 2021</em> <br>
-                (with Girija Bahety, Sebastian Bauhoff, and James Potter)
-            </li>
-        </ul>
-    </section>
+<!--         <!-- Other Sections -->
+        <section id="teaching">
+            <h2>Teaching Activity</h2>
+            <ul>
+                <li>Details about teaching activities...</li>
+            </ul>
+        </section>
 
-<!--     <!-- Footer -->
-    <footer>
-        <p>© 2025 Vlada Kosenkova. All rights reserved.</p>
-    </footer> -->
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Vlada Kosenkova. All rights reserved.</p>
+        </footer> -->
+    </div>
+</div>
 
 </body>
 </html>
