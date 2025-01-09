@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollable Website</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style for navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style for sections */
+        section {
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+        }
+
+        #home {
+            background-color: #4CAF50;
+        }
+
+        #about {
+            background-color: #2196F3;
+        }
+
+        #projects {
+            background-color: #FF5722;
+        }
+
+        #contact {
+            background-color: #9C27B0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Sections -->
+    <section id="home">
+        <h1>Welcome to My Website</h1>
+        <p>Scroll down to explore!</p>
+    </section>
+
+    <section id="about">
+        <h1>About Me</h1>
+        <p>I'm a web developer who loves creating beautiful websites.</p>
+    </section>
+
+    <section id="projects">
+        <h1>My Projects</h1>
+        <p>Here are some of my amazing projects!</p>
+    </section>
+
+    <section id="contact">
+        <h1>Contact Me</h1>
+        <p>Email: your.email@example.com</p>
+        <p>GitHub: <a href="https://github.com/yourusername" target="_blank" style="color: white;">yourusername</a></p>
+    </section>
+
+</body>
+</html>
