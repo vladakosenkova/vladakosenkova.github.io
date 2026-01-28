@@ -2,152 +2,485 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal website of Vlada Kosenkova, PhD Student at CERGE-EI">
     <meta name="keywords" content="vlada kosenkova, vlada kosenkova phd, vlada kosenkova econ, vlada kosenkova cerge-ei">
     <meta name="author" content="Vlada Kosenkova">
     <meta name="google-site-verification" content="N0Mxv9GcuBY-lyIrE2ylEnXg-905mGstUif1Z8kF7B4" />
+    <title>Vlada Kosenkova | PhD Student at CERGE-EI</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Serif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* Apply the chosen font to all text */
-        body {
-            font-family: "Roboto Serif", serif;
-            font-size: 20px; /* Set base font size */
-            line-height: 1.6;
+        :root {
+            --primary: #1a5f7a;
+            --primary-light: #2d7a96;
+            --accent: #c75146;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #6a6a6a;
+            --bg-white: #ffffff;
+            --bg-subtle: #fafafa;
+            --border-light: #e8e8e8;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
-            color: #333;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3 {
+            font-family: "Crimson Pro", Georgia, serif;
+            font-weight: 600;
+            line-height: 1.3;
         }
 
         a {
+            color: var(--primary);
             text-decoration: none;
-            color: #107895; /* Darker green-blue shade */
+            transition: all 0.2s ease;
+            border-bottom: 1px solid transparent;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: var(--primary-light);
+            border-bottom-color: var(--primary-light);
         }
 
+        /* Layout */
         .container {
-            display: flex;
-            flex-direction: row;
-            height: 100vh;
-            overflow: hidden;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            min-height: 100vh;
+            max-width: 1600px;
+            margin: 0 auto;
         }
 
-        .profile {
-            flex: 0 0 400px; /* Increase this value to make the profile section wider */
-            background-color: rgba(91, 164, 197, 0.4); /* Light green-bluish color with 40% opacity */
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            overflow-y: auto;
+        /* Sidebar */
+        .sidebar {
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-subtle) 100%);
+            border-right: 1px solid var(--border-light);
+            padding: 60px 40px;
             position: sticky;
             top: 0;
             height: 100vh;
-        }
-
-        .profile img {
-            max-width: 100%;
-            border-radius: 3px;
-            height: auto;
-            margin-bottom: 20px;
-        }
-
-        .profile h1 {
-            font-size: 1.5em; /* Scaled header size */
-            margin: 0 0 10px 0;
-            color: #107895; /* Same as hyperlinks */
-            text-align: center;
-        }
-
-        .bio p {
-            margin: 10px 0;
-        }
-        .bio strong {
-            color: #107895; /* Same color as the name */
-        }
-
-        .content {
-            flex: 1;
-            padding: 20px;
             overflow-y: auto;
-            background-color: #ffffff; /* White background */
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .profile-header {
+            text-align: center;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 24px;
+            display: block;
+            border: 3px solid var(--primary);
+            box-shadow: 0 8px 24px rgba(26, 95, 122, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(26, 95, 122, 0.25);
+        }
+
+        .profile-header h1 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .profile-header .title {
+            font-size: 15px;
+            color: var(--text-medium);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 24px 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            color: var(--text-medium);
+            font-weight: 500;
+            border: none;
+            padding: 8px 0;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        /* Contact */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            font-size: 14px;
+        }
+
+        .contact-info a {
+            color: var(--text-medium);
+            word-break: break-word;
+            border: none;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .social-links a {
+            padding: 10px 20px;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .social-links a:hover {
+            border-color: var(--primary);
+            background-color: rgba(26, 95, 122, 0.04);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 80px;
+            max-width: 900px;
         }
 
         section {
-            max-width: 900px;
-            margin: 0 auto 40px auto;
-            padding-bottom: 20px;
-            border-bottom: 4px solid #107895; /* Green-blue for lines */
+            margin-bottom: 80px;
+            animation: slideIn 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         section h2 {
-            font-size: 1.4em; /* Scaled header size */
-            color: #107895; /* Same as hyperlinks */
-            margin-bottom: 10px;
+            font-size: 36px;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            position: relative;
+            display: inline-block;
         }
 
-        .article-title {
-            color: #107895; /* Same color as hyperlinks */
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+            border-radius: 2px;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        .bio-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-medium);
+            margin-top: 32px;
         }
 
-        ul li {
-            margin: 15px 0;
+        .bio-text a {
+            font-weight: 500;
         }
 
-        footer {
-            text-align: center;
-            margin: 20px 0;
-            color: #999;
+        /* Papers */
+        .paper-list {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .paper-item {
+            padding: 32px;
+            margin-bottom: 32px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .paper-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+
+        .paper-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .paper-item:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .paper-title {
+            font-family: "Crimson Pro", Georgia, serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .paper-authors {
+            font-size: 15px;
+            color: var(--text-medium);
+            margin-bottom: 8px;
+        }
+
+        .paper-authors a {
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        .paper-authors a:hover {
+            color: var(--primary);
+        }
+
+        .paper-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .paper-meta a {
+            font-size: 13px;
+            padding: 6px 14px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .paper-meta a:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .grant-info {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            background: rgba(199, 81, 70, 0.05);
+            border-left: 3px solid var(--accent);
+            border-radius: 4px;
+        }
+
+        .paper-abstract {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-medium);
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .paper-presentations {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--text-light);
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .paper-presentations a {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 320px 1fr;
+            }
+
+            .main-content {
+                padding: 40px 60px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border-light);
+                padding: 40px 24px;
+            }
+
+            .main-content {
+                padding: 40px 24px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .bio-text {
+                font-size: 16px;
+            }
+
+            .paper-title {
+                font-size: 20px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection styling */
+        ::selection {
+            background: rgba(26, 95, 122, 0.2);
+            color: var(--text-dark);
+        }
+
+        /* Focus styles for accessibility */
+        a:focus,
+        button:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Fixed Sidebar -->
-    <div class="profile">
-        <h1>Vlada Kosenkova</h1>
-        <img src="photo.jpg" alt="Vlada Kosenkova">
-        <div class="bio">
-            <p align="left"> 
-                <a href="CV.pdf" target="_blank"><strong>CV</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="https://www.linkedin.com/in/vlada-kosenkova-51a634194/"><strong>LinkedIn</strong></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="https://www.instagram.com/wsjfm/"><strong>Instagram</strong></a>
-            </p>
-            <p align="left"><a href="mailto:vlada.kosenkova@cerge-ei.cz">vlada.kosenkova[at]cerge-ei.cz</a></p>
-            <!-- <p>I am also present on <a href="https://www.linkedin.com/in/vlada-kosenkova-51a634194/">LinkenIn</a> and <a href="https://www.instagram.com/wsjfm/">Instagram</a></p> -->
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="profile-header">
+            <img src="photo.jpg" alt="Vlada Kosenkova" class="profile-image">
+            <h1>Vlada Kosenkova</h1>
+            <p class="title">PhD Student at CERGE-EI</p>
         </div>
-    </div>
 
-    <!-- Scrollable Main Content -->
-    <div class="content">
-        <!-- Bio Section -->
-        <section id="bio">
-            <h2>Welcome!</h2>
-            <p>Hi! I am a PhD student at <a href="https://www.cerge-ei.cz/">CERGE-EI</a>, studying Economic Research in Prague. I specialize in development economics, economics of crime, and political economy, with a primary focus on the Russian setting. My supervisor is <a href="https://home.cerge-ei.cz/jurajda/">Štěpán Jurajda</a>.</p>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#research">Research</a>
+            <a href="CV.pdf" target="_blank">Curriculum Vitae</a>
+        </nav>
+
+        <div class="contact-info">
+            <a href="mailto:vlada.kosenkova@cerge-ei.cz">vlada.kosenkova@cerge-ei.cz</a>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/vlada-kosenkova-51a634194/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://www.instagram.com/wsjfm/" target="_blank" rel="noopener">Instagram</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About</h2>
+            <div class="bio-text">
+                <p>I am a PhD student at <a href="https://www.cerge-ei.cz/" target="_blank">CERGE-EI</a>, studying Economic Research in Prague. I specialize in development economics, economics of crime, and political economy, with a primary focus on the Russian setting.</p>
+                <p style="margin-top: 1em;">My supervisor is <a href="https://home.cerge-ei.cz/jurajda/" target="_blank">Štěpán Jurajda</a>.</p>
+            </div>
         </section>
 
-        <!-- Working Papers Section -->
-        <section id="working-papers">
-            <h2>Work in Progress</h2>
-            <ul>
-                <li>
-                    <strong class="article-title">Silent Protest on the Bench: The Impact of War on Ethnic Sentencing Disparities in Russian Courts</strong> (with <a href="https://www.linkedin.com/in/arsenii-shcherbov/">Arsenii Scherbov)</a> [<a href="slides.pdf" target="_blank">slides</a>]
-                    <p style="font-size: 0.9em; font-style: italic; margin-top: 10px;">This project is supported by the Charles University Grant Agency no. 69224</p>
-                    <p>In this paper we investigate the effect of a 2022 war announcement and intensification of nationalistic propaganda on the sentencing disparities in Russian courts. We leverage the unexpected nature of war announcement in a regression discontinuity design, using February 2022 as a cut-off date. Our identification strategy is supported by the random allocation of cases inside of courts, which we also statistically check, and a series of robustness checks. To quantify the effect, we use a unique dataset on case-level and imply ethnicity of judge and defendant based on their names with a machine-learning classification model. Focusing on different ethnic pairs of judges and defendants in minor offense cases, we find that ethnic judges become more punitive towards Russian defendants after war. Thus, we find a 5.3 percentage point increase in probability to be sentenced to detention among this ethnic pair. This effect is particularly pronounced in localities with lower social trust, ethnic diversity, and democratic values (and higher predisposition to be affected by propaganda), suggesting that this change may be interpreted as a silent protest of ethnic minorities. These findings contribute to our understanding of how political shocks and propaganda intensification can affect ethnic discrimination within state institutions, particularly in autocratic settings.</p>
-                    <p style="font-style: italic">This paper has been presented at: <a href="https://cse.cz/en/">CES Biannual meeting 2024</a>, <a href="https://www.eui.eu/events?id=574575">Political Behaviour Colloquium</a></p>
+        <!-- Research Section -->
+        <section id="research">
+            <h2>Research</h2>
+            
+            <ul class="paper-list">
+                <li class="paper-item">
+                    <h3 class="paper-title">Silent Protest on the Bench: The Impact of War on Ethnic Sentencing Disparities in Russian Courts</h3>
+                    
+                    <p class="paper-authors">with <a href="https://www.linkedin.com/in/arsenii-shcherbov/" target="_blank">Arsenii Shcherbov</a></p>
+                    
+                    <div class="paper-meta">
+                        <a href="slides_EWMES.pdf" target="_blank">Slides</a>
+                    </div>
+
+                    <div class="grant-info">
+                        This project is supported by the Charles University Grant Agency no. 69224
+                    </div>
+                    
+                    <p class="paper-abstract">
+                        In this paper we investigate the effect of a 2022 war announcement and intensification of nationalistic propaganda on the sentencing disparities in Russian courts. We leverage the unexpected nature of war announcement in a regression discontinuity design, using February 2022 as a cut-off date. Our identification strategy is supported by the random allocation of cases inside of courts, which we also statistically check, and a series of robustness checks. To quantify the effect, we use a unique dataset on case-level and imply ethnicity of judge and defendant based on their names with a machine-learning classification model. Focusing on different ethnic pairs of judges and defendants in minor offense cases, we find that ethnic judges become more punitive towards Russian defendants after war. Thus, we find a 5.3 percentage point increase in probability to be sentenced to detention among this ethnic pair. This effect is particularly pronounced in localities with lower social trust, ethnic diversity, and democratic values (and higher predisposition to be affected by propaganda), suggesting that this change may be interpreted as a silent protest of ethnic minorities. These findings contribute to our understanding of how political shocks and propaganda intensification can affect ethnic discrimination within state institutions, particularly in autocratic settings.
+                    </p>
+                    
+                    <p class="paper-presentations">
+                        Presented at: <a href="https://cse.cz/en/" target="_blank">CES Biannual Meeting 2024</a>, <a href="https://www.eui.eu/events?id=574575" target="_blank">Political Behaviour Colloquium</a>
+                    </p>
                 </li>
             </ul>
         </section>
-    </div>
+    </main>
 </div>
 
 </body>
