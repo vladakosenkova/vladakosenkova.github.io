@@ -200,6 +200,8 @@
         section:nth-child(1) { animation-delay: 0.1s; }
         section:nth-child(2) { animation-delay: 0.2s; }
         section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(5) { animation-delay: 0.5s; }
 
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(30px); }
@@ -354,6 +356,81 @@
             font-weight: 500;
         }
 
+        /* Experience Sections */
+        .experience-list {
+            margin-top: 32px;
+        }
+
+        .experience-item {
+            padding: 28px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .experience-title {
+            font-family: "Crimson Pro", Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .experience-date {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .experience-description {
+            font-size: 15px;
+            color: var(--text-medium);
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .experience-responsibilities {
+            font-size: 15px;
+            color: var(--text-medium);
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .experience-details {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0;
+        }
+
+        .experience-details li {
+            font-size: 15px;
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin: 12px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .experience-details li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
         /* Responsive Design */
         @media (max-width: 1200px) {
             .container {
@@ -428,6 +505,9 @@
         <nav class="nav-links">
             <a href="#about">About</a>
             <a href="#research">Work in Progress</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#grants">Grants & Awards</a>
+            <a href="#volunteering">Volunteering</a>
             <a href="CV.pdf" target="_blank">Curriculum Vitae</a>
         </nav>
 
@@ -512,10 +592,77 @@
                 </li>
             </ul>
         </section>
+
+        <!-- Teaching Section -->
+        <section id="teaching">
+            <h2>Teaching</h2>
+            
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">CERGE-EI</h3>
+                        <span class="experience-date">2022 – 2024</span>
+                    </div>
+                    <ul class="experience-details">
+                        <li><strong>Teaching Assistant, Microeconomics II</strong> — First year PhD in Economic Research (February 2023 – March 2023)</li>
+                        <li><strong>Teaching Assistant, Introduction to R</strong> — First year MA/PhD in Economic Research (October 2022, 2023, 2024)</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Higher School of Economics, Saint Petersburg</h3>
+                        <span class="experience-date">2019</span>
+                    </div>
+                    <ul class="experience-details">
+                        <li><strong>Teaching Assistant, Macroeconomics</strong> — Third year BA in Economics (September 2019 – December 2019)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grants and Awards Section -->
+        <section id="grants">
+            <h2>Grants & Awards</h2>
+            
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">The Charles University Grant Agency</h3>
+                        <span class="experience-date">March 2024 – March 2026</span>
+                    </div>
+                    <p class="experience-description">Student grant to support ongoing research projects, ~7,500 EUR/year</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Research Fellowship Competition</h3>
+                        <span class="experience-date">June 2022</span>
+                    </div>
+                    <p class="experience-description">3rd prize, CERGE-EI, ~1,500 EUR</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteering Section -->
+        <section id="volunteering">
+            <h2>Volunteering</h2>
+            
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">English Teacher</h3>
+                        <span class="experience-date">2022 – Present</span>
+                    </div>
+                    <p class="experience-description"><a href="https://samanthasgroup.com/en" target="_blank">Samantha's Group Project</a></p>
+                    <p class="experience-responsibilities" style="margin-top: 16px;">
+                        I believe that giving back to the community is important, which is why I have been supporting the Samantha's Group Project since June 2022. This initiative provides free language education to refugees and displaced individuals, helping them build new lives and integrate into their communities. These lessons also help to create a safe space for your students, and bring them sense of stability at least for an hour a week, which is really important. If you feel inspired to join, the project welcomes volunteers as language teachers or coordinators. Feel free to contact me if you have any questions or suggestions. Your time, support, and empathy would be surely and truly appreciated and make a meaningful difference!
+                    </p>
+                </div>
+            </div>
+        </section>
     </main>
 </div>
 
 </body>
 </html>
-
-
